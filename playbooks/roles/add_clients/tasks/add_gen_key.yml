@@ -64,7 +64,7 @@
 
 - name: OpenVPN | Add Clients | Register HMAC firewall key contents
   command: cat {{ openvpn_hmac_firewall }}
-  no_log: true
+#  no_log: true
   register: openvpn_hmac_firewall_contents
   changed_when: false
 

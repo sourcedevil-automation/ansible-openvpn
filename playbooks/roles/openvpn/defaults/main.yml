@@ -21,7 +21,9 @@ openvpn_tls_cipher: "TLS-DHE-DSS-WITH-AES-256-GCM-SHA384:TLS-DHE-RSA-WITH-AES-25
 
 ## lock easyrsa git checkout to pull in openssl fix
 ##    https://github.com/OpenVPN/easy-rsa/issues/132
-openvpn_easyrsa_version: a138c0d83b0ff1feed385c5d2d7a1c25422fe04d
+#openvpn_easyrsa_version: a138c0d83b0ff1feed385c5d2d7a1c25422fe04d
+#openvpn_easyrsa_version: 5eb5eecfa3d8e2bf7dfdc9fb0429afa43c737c90
+openvpn_easyrsa_version: a9cecc747c419197d9540ccd46259559e271788a
 
 openvpn_instances:
   - {
@@ -68,7 +70,7 @@ local_creds_folder: "{{ playbook_dir }}/../fetched_creds/{{ openvpn_server }}"
 required_packages:
   - sudo
   # Required for ansible 'expect' module
-  #- python-pexpect
+  - python-pexpect
   - python-pip
   - python-virtualenv
   # Required for easy-rsa install in PKI tasks and audit tasks
@@ -86,6 +88,7 @@ required_packages:
   - dnsmasq
   - rsyslog
   - logrotate
+  - python-passlib
 
 unwanted_packages:
   - bind9-host

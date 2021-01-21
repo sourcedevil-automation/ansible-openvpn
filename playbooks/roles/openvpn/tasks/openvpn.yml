@@ -2,7 +2,7 @@
 - name: OpenVPN | sysctl | Enable IPv4 traffic forwarding
   sysctl:
     name: net.ipv4.ip_forward
-    value: 1
+    value: "1"
 
 - name: OpenVPN | Configuration | Copy OpenVPN server configuration files into place
   template:
@@ -55,6 +55,7 @@
     state: file
     group: openvpn
     mode: g+r
+    follow: yes
   with_items:
     - "{{ openvpn_ca_cert }}"
     - "{{ dhparams_location }}"

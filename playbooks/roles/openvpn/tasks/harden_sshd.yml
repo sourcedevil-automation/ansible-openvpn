@@ -18,6 +18,7 @@
     line: "{{ item.line }}"
     state: present
     validate: '/usr/sbin/sshd -T -f %s'
+    backup: yes
   with_items:
     - { reg: '^(#)?PasswordAuthentication', line: 'PasswordAuthentication no'}
     # V-38613 - The ssh daemon must not permit root logins
@@ -60,5 +61,6 @@
   lineinfile:
     dest: /etc/ssh/sshd_config
     line: 'ListenAddress {{ item.gateway }}'
+    backup: yes
   with_items: "{{ openvpn_instances }}"
   when: ssh_on_vpn_only == true

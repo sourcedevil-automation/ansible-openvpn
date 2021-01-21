@@ -14,16 +14,25 @@
 - include: openvpn.yml
 - include: dns.yml
 - include: harden_sysctl.yml
-  when: ansible_virtualization_type != "docker"
+  when: ansible_virtualization_type != "docker" and harden | boolean | default(false)
 - include: harden_umask.yml
+  when: harden | boolean | default(false)
 - include: harden_services.yml
+  when: harden | boolean | default(false)
 - include: harden_kernel.yml
-  when: ansible_virtualization_type != "docker"
+  when: ansible_virtualization_type != "docker" and harden | boolean | default(false)
 - include: harden_misc.yml
+  when: harden | boolean | default(false)
 - include: harden_auditd.yml
+  when: harden | boolean | default(false)
 
 - include: firewall.yml
+  when: harden | boolean | default(false)
 - include: harden_password.yml
+  when: harden | boolean | default(false)
 - include: harden_users.yml
+  when: harden | boolean | default(false)
 - include: harden_sshd.yml
+  when: harden | boolean | default(false)
 - include: harden_aide.yml
+  when: harden | boolean | default(false)

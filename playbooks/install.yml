@@ -1,6 +1,7 @@
 - name: Install required software, configure and harden
 # ========================================================
   hosts: openvpn-internet
+  become: true
 
 # You need a python 2 interpreter first, so skip gathering facts, then use
 # 'setup:' to get them after the python 2 interpreter has been installed.
