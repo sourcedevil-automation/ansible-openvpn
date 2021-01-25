@@ -1,0 +1,15 @@
+---
+- name: Update SSH Keys
+  hosts: all
+  gather_facts: no
+
+  vars:
+    ansible_user: carlos
+
+  collections:
+    - friasc.workstation_setup
+
+  roles:
+  - ssh_known_hosts_cleanup
+  - ssh_user_setup
+  - ssh_lockdown_login

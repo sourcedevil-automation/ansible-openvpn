@@ -70,9 +70,9 @@ local_creds_folder: "{{ playbook_dir }}/../fetched_creds/{{ openvpn_server }}"
 required_packages:
   - sudo
   # Required for ansible 'expect' module
-  - python-pexpect
-  - python-pip
-  - python-virtualenv
+  - python3-pexpect
+  - python3-pip
+  - python3-virtualenv
   # Required for easy-rsa install in PKI tasks and audit tasks
   - git
   # Used to verify GPG signatures for mirrored packages
@@ -89,6 +89,7 @@ required_packages:
   - rsyslog
   - logrotate
   - python-passlib
+  - tree
 
 unwanted_packages:
   - bind9-host
