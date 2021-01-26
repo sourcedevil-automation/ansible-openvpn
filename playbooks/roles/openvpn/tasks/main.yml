@@ -1,9 +1,4 @@
 ---
-- name: Setting harden value
-  set_fact:
-    cacheable: true
-    harden: "{{ harden | default(false) }}"
-
 - name: OpenVPN | Install | Set Distro/Version specific variables
   include_vars: "{{ item }}"
   with_first_found:
@@ -19,25 +14,16 @@
 - include: openvpn.yml
 - include: dns.yml
 - include: harden_sysctl.yml
-  when: ansible_virtualization_type != "docker" and harden
+  when: ansible_virtualization_type != "docker"
 - include: harden_umask.yml
-  when: harden
 - include: harden_services.yml
-  when: harden
 - include: harden_kernel.yml
-  when: ansible_virtualization_type != "docker" and harden
+  when: ansible_virtualization_type != "docker"
 - include: harden_misc.yml
-  when: harden
 - include: harden_auditd.yml
-  when: harden
 
 - include: firewall.yml
-  when: harden
 - include: harden_password.yml
-  when: harden
 - include: harden_users.yml
-  when: harden
 - include: harden_sshd.yml
-  when: harden
 - include: harden_aide.yml
-  when: harden
