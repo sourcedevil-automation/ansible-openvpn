@@ -29,7 +29,7 @@
         (ansible_virtualization_type == "docker" and ansible_distribution not in ['Ubuntu'])
 
 - name: New Sudo User Creds
-  local_action: template src=group_vars_openvpn-vpn.yml.j2 dest={{ playbook_dir }}/group_vars/openvpn-vpn.yml
+  local_action: template src=group_vars_openvpn_vpn.yml.j2 dest={{ playbook_dir }}/group_vars/openvpn_vpn.yml
   become: False
 
 - name: start auditd

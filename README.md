@@ -170,9 +170,9 @@ Entering a pass phrase every time the client is started can be annoying. There a
 Credentials are generated during the install process and are saved as yml formatted files in the Ansible file hierarchy so they can be used without requiring the playbook caller to take any action. The locations are below.
 
 - CA Private key passphrase - saved in `group_vars/all.yml`
-- User account name and password - saved in  `group_vars/openvpn-vpn.yml`
+- User account name and password - saved in  `group_vars/openvpn_vpn.yml`
 
-After the install.yml playbook has successfully been run, **you'll only be able to SSH into the box when connected to the VPN** using the account defined in `group_vars/openvpn-vpn.yml`
+After the install.yml playbook has successfully been run, **you'll only be able to SSH into the box when connected to the VPN** using the account defined in `group_vars/openvpn_vpn.yml`
 
     ssh [created_user]@10.9.0.1
 
