@@ -4,7 +4,7 @@
   gather_facts: no
 
   vars:
-    ansible_user: carlos
+    target_remote_user: carlos
 
   collections:
     - friasc.workstation_setup
