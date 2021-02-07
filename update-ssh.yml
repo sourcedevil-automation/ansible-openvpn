@@ -6,10 +6,9 @@
   vars:
     target_remote_user: carlos
 
-  collections:
-    - friasc.workstation_setup
-
   roles:
-  - ssh_known_hosts_cleanup
-  - ssh_user_setup
-  - ssh_lockdown_login
+  - frias.ssh_remote_setup.ssh_known_hosts_cleanup
+  - frias.os_setup.python_install_minimal
+  - frias.ssh_remote_setup.ssh_user_setup
+
+
