@@ -1,17 +1,4 @@
 ---
-- name: Update SSH Keys
-  hosts: all
-  gather_facts: no
-  tags: ['ssh-remote-users']
-
-  vars:
-    target_remote_user: carlos
-
-  roles:
-  - frias.ssh_remote_setup.ssh_known_hosts_cleanup
-  - frias.os_setup.python_install_minimal
-  - frias.ssh_remote_setup.ssh_user_setup
-
 - name: Install required software, configure and harden
 # ========================================================
   hosts: openvpn_internet

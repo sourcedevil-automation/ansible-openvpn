@@ -11,4 +11,15 @@
   - frias.os_setup.python_install_minimal
   - frias.ssh_remote_setup.ssh_user_setup
 
+  pre_tasks:
+    - name: Is there a prior credentials available?
+      stat:
+        path: "{{ playbook_dir }}/group_vars/openvpn_vpn.yml
+      register: exists
+
+    - name: Remove existing credentials if available
+      file:
+        path: "{{ playbook_dir }}/group_vars/openvpn_vpn.yml
+        state: absent
+      when: exists.stat.exists and {{ new_config | default(False) }}
 

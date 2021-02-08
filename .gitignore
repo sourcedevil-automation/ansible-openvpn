@@ -2,4 +2,5 @@ fetched_creds
 *.retry
 /inventory
 *.iml
-
+**/openvpn_vpn.yml
+cache/**
