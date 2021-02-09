@@ -14,7 +14,7 @@
   tags: ['packages']
 
 - include: pki.yml
-  tags: ['pki']
+  tags: ['pki','creds']
 
 - include: openvpn.yml
   tags: ['openvpn']
