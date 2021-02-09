@@ -12,14 +12,16 @@
   - frias.ssh_remote_setup.ssh_user_setup
 
   pre_tasks:
-    - name: Is there a prior credentials available?
-      stat:
-        path: "{{ playbook_dir }}/group_vars/openvpn_vpn.yml"
-      register: exists
+  - name: Is there a prior credential file available?
+    stat:
+      path: "{{ playbook_dir }}/group_vars/openvpn_vpn.yml"
+    register: exists
+    delegate_to: 127.0.0.1
 
-    - name: Remove existing credentials if available
-      file:
-        path: "{{ playbook_dir }}/group_vars/openvpn_vpn.yml"
-        state: absent
-      when: exists.stat.exists
+  - name: Remove existing credentials if available
+    file:
+      path: "{{ playbook_dir }}/group_vars/openvpn_vpn.yml"
+      state: absent
+    when: exists.stat.exists
+    delegate_to: 127.0.0.1
 
