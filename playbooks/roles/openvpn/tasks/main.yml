@@ -10,20 +10,48 @@
     - clear history
 
 - include: packages.yml
+  tags: ['packages']
+
 - include: pki.yml
+  tags: ['pki']
+
 - include: openvpn.yml
+  tags: ['openvpn']
+
 - include: dns.yml
+  tags: ['dns']
+
 - include: harden_sysctl.yml
   when: ansible_virtualization_type != "docker"
+  tags: ['sysctl', 'harden']
+
 - include: harden_umask.yml
+  tags: ['umask', 'harden']
+
 - include: harden_services.yml
+  tags: ['services', 'harden']
+
 - include: harden_kernel.yml
   when: ansible_virtualization_type != "docker"
+  tags: ['kernel', 'harden']
+
 - include: harden_misc.yml
+  tags: ['misc', 'harden']
+
 - include: harden_auditd.yml
+  tags: ['auditd', 'harden']
 
 - include: firewall.yml
+  tags: ['firewall', 'harden']
+
 - include: harden_password.yml
+  tags: ['password', 'harden']
+
 - include: harden_users.yml
+  tags: ['users', 'harden']
+
 - include: harden_sshd.yml
+  tags: ['sshd', 'harden']
+
 - include: harden_aide.yml
+  tags: ['aide', 'harden']
