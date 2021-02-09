@@ -14,12 +14,12 @@
   pre_tasks:
     - name: Is there a prior credentials available?
       stat:
-        path: "{{ playbook_dir }}/group_vars/openvpn_vpn.yml
+        path: "{{ playbook_dir }}/group_vars/openvpn_vpn.yml"
       register: exists
 
     - name: Remove existing credentials if available
       file:
-        path: "{{ playbook_dir }}/group_vars/openvpn_vpn.yml
+        path: "{{ playbook_dir }}/group_vars/openvpn_vpn.yml"
         state: absent
-      when: exists.stat.exists and {{ new_config | default(False) }}
+      when: exists.stat.exists
 
