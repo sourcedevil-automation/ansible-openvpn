@@ -37,7 +37,7 @@ os_family_specific_pre:
   - apt-transport-https
   - ca-certificates
   # Required for the apt_repository module
-  - python-software-properties
+  #  - python-software-properties
   # Used for automatically installing security updates
   - unattended-upgrades
   # File integrity
